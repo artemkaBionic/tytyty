@@ -418,8 +418,7 @@ Ship = function () {
 
     if (this.delayBeforeBullet > 0) {
 	this.delayBeforeBullet = 10;
-     
-    }
+     }
     if (KEY_STATUS.space) {
       if (this.delayBeforeBullet <= 0) {
         for (var i = 0; i < this.bullets.length; i++) {
