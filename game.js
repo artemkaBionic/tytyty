@@ -417,10 +417,12 @@ Ship = function () {
     }
 
     if (this.delayBeforeBullet > 0) {
-	this.delayBeforeBullet = 10;
-     }
+	this.delayBeforeBullet -= delta;
+     
+    }
     if (KEY_STATUS.space) {
       if (this.delayBeforeBullet <= 0) {
+this.delayBeforeBullet = 10;
         for (var i = 0; i < this.bullets.length; i++) {
           if (!this.bullets[i].visible) {
             SFX.laser();
@@ -674,7 +676,7 @@ Asteroid = function () {
     this.scale /= 3;
     if (this.scale > 0.5) {
       // break into fragments
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < 2; i++) {
         var roid = $.extend(true, {}, this);
         roid.vel.x = Math.random() * 6 - 3;
         roid.vel.y = Math.random() * 6 - 3;
